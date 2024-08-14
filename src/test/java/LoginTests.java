@@ -20,9 +20,42 @@ public class LoginTests extends BaseTest {
         Thread.sleep(3000);
         homePage.loginController();
 
+    }
+    @Test
+    public void loginUnsuccessful() throws InterruptedException {
 
+        mainPage.clickOneTrustClose();
+        loginPage
+                .fillEmail("sevde@gmail.com")
+                .fillPassword("1234567845")
+                .clickLogin()
+                .passwordMessageController();
+    }
 
+    @Test
+    public void maxCharacterControl() throws InterruptedException {
 
+        mainPage.clickOneTrustClose();
+        loginPage
+                .fillEmail("sevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmail")
+                .fillPassword("12345678123456781234567812345678123456781234567812345678123456781234567812345678123456781234567812345678")
+                .clickLogin();
+        Thread.sleep(3000);
+        homePage.loginController();
 
     }
+
+    @Test
+    public void minCharacterControl() throws InterruptedException {
+
+        mainPage.clickOneTrustClose();
+        loginPage
+                .fillEmail("sevdekulhan@gmail.com")
+                .fillPassword("")
+                .clickLogin();
+        Thread.sleep(3000);
+        homePage.loginController();
+
+    }
+
 }

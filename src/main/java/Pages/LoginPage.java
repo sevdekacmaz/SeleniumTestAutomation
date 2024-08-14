@@ -2,6 +2,7 @@ package Pages;
 
 import Base.Data;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class LoginPage extends Data {
 
@@ -19,5 +20,9 @@ public class LoginPage extends Data {
         return this;
 
     }
-
+    public LoginPage passwordMessageController(){
+        String value = driver.findElement(By.cssSelector("[data-uia='password-field+validationMessage']")).getText();
+        Assert.assertEquals(value, message);
+        return this;
+    }
 }
