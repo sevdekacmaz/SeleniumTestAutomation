@@ -29,7 +29,7 @@ public class LoginTests extends BaseTest {
                 .fillEmail("sevde@gmail.com")
                 .fillPassword("1234567845")
                 .clickLogin()
-                .passwordMessageController();
+                .unsuccessfulMessageController();
     }
 
     @Test
@@ -39,9 +39,9 @@ public class LoginTests extends BaseTest {
         loginPage
                 .fillEmail("sevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmailsevdekulhan@gmail")
                 .fillPassword("12345678123456781234567812345678123456781234567812345678123456781234567812345678123456781234567812345678")
-                .clickLogin();
-        Thread.sleep(3000);
-        homePage.loginController();
+                .clickLogin().emailMaxCharacterController();
+
+
 
     }
 
@@ -51,10 +51,7 @@ public class LoginTests extends BaseTest {
         mainPage.clickOneTrustClose();
         loginPage
                 .fillEmail("sevdekulhan@gmail.com")
-                .fillPassword("")
-                .clickLogin();
-        Thread.sleep(3000);
-        homePage.loginController();
+                .clickLogin().passwordMessageController();
 
     }
 

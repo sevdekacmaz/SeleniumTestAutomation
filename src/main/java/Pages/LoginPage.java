@@ -25,4 +25,17 @@ public class LoginPage extends Data {
         Assert.assertEquals(value, message);
         return this;
     }
+
+    public LoginPage unsuccessfulMessageController(){
+        String value = driver.findElement(By.cssSelector("[data-uia='error-message-container+header']")).getText();
+        Assert.assertEquals(value, message2);
+        return this;
+    }
+
+    public LoginPage emailMaxCharacterController(){
+        String value = driver.findElement(By.cssSelector("[data-uia='login-field+validationMessage']")).getText();
+        Assert.assertEquals(value, message3);
+        return this;
+    }
+
 }
