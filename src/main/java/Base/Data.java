@@ -11,4 +11,5 @@ public class Data {
     public String message3 = "Lütfen geçerli bir e‑posta adresi girin.";
 
 
+
 }

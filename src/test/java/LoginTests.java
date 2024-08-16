@@ -9,7 +9,7 @@ public class LoginTests extends BaseTest {
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
 
-    @Test
+    @Test(description = "Başarılı kullanıcı girişi")
     public void loginSuccessful() throws InterruptedException {
 
         mainPage.clickOneTrustClose();
@@ -21,18 +21,19 @@ public class LoginTests extends BaseTest {
         homePage.loginController();
 
     }
-    @Test
+    @Test(description = "Başarısız kullanıcı girişi")
     public void loginUnsuccessful() throws InterruptedException {
 
         mainPage.clickOneTrustClose();
         loginPage
                 .fillEmail("sevde@gmail.com")
                 .fillPassword("1234567845")
-                .clickLogin()
-                .unsuccessfulMessageController();
+                .clickLogin();
+                Thread.sleep(3000);
+                loginPage.unsuccessfulMessageController();
     }
 
-    @Test
+    @Test(description = "Maksimum karakter kontrolü")
     public void maxCharacterControl() throws InterruptedException {
 
         mainPage.clickOneTrustClose();
@@ -45,7 +46,7 @@ public class LoginTests extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "Minimum karakter kontrolü")
     public void minCharacterControl() throws InterruptedException {
 
         mainPage.clickOneTrustClose();
